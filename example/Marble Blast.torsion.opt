@@ -1,0 +1,15 @@
+<TorsionProjectOptions>
+<Address>127.0.0.1</Address>
+<Password>password</Password>
+<Port>6060</Port>
+<LastConfig>Release</LastConfig>
+<Breakpoints/>
+<Bookmarks/>
+<OpenFiles>
+<File ScrollX="0" ScrollY="0">marble\client\scripts\serverConnection.cs</File>
+<File ScrollX="0" ScrollY="0">marble\client\scripts\loadingGui.cs</File>
+<File ScrollX="0" ScrollY="50" Active="true">marble\client\scripts\playgui.cs</File>
+<File ScrollX="0" ScrollY="12">marble\client\ui\playGui.gui</File>
+<File ScrollX="0" ScrollY="28">marble\server\scripts\item.cs</File>
+</OpenFiles>
+</TorsionProjectOptions>
