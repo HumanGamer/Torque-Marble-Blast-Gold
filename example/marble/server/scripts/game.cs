@@ -560,7 +560,7 @@ function GameConnection::createPlayer(%this, %spawnPoint)
 
    // Give the client control of the player
    %this.player = %player;
-   %this.setControlObject(%player);
+   %this.setControlObject(%this.camera);//%player);
 }
 
 

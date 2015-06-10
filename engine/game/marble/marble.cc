@@ -82,6 +82,7 @@ IMPLEMENT_CO_NETOBJECT_V1(Marble);
 
 Marble::Marble()
 {
+	//mPolyList = new ConcretePolyList();
 }
 
 Marble::~Marble()
@@ -90,6 +91,7 @@ Marble::~Marble()
 
 void Marble::initPersistFields()
 {
+	ConsoleObject::addField("Controllable", TypeBool, Offset(mControllable, Marble));
 	Parent::initPersistFields();
 }
 
@@ -97,3 +99,80 @@ void Marble::consoleInit()
 {
 	Parent::consoleInit();
 }
+
+bool Marble::onAdd()
+{
+	if (!Parent::onAdd() || !mDataBlock)
+		return false;
+
+	addToScene();
+	//SceneGraph::addShadowOccluder();
+
+	return Parent::onAdd();
+}
+
+void Marble::onRemove()
+{
+	//SceneGraph::removeShadowOccluder();
+	removeFromScene();
+
+	//if (?)
+	//	alxStop(?);
+
+	//if (?)
+	//	alxStop(?);
+
+	Parent::onRemove();
+}
+
+void Marble::setMode(MarbleMode mode)
+{
+	//setMaskBits();
+}
+
+void Marble::processTick(const Move *move)
+{
+	Parent::processTick(move);
+}
+
+void Marble::setPosition(const Point3F& pos, const AngAxisF& rot, const AngAxisF& rot1)
+{
+	MatrixF mat;
+	rot.setMatrix(&mat);
+	mat.setColumn(3,pos);
+	setTransform(mat);
+	setRenderTransform(mat);
+	rot1.setMatrix(&mat);
+}
+
+bool Marble::onNewDataBlock(GameBaseData* dptr)
+{
+   mDataBlock = dynamic_cast<MarbleData*>(dptr);
+   if (!mDataBlock || !Parent::onNewDataBlock(dptr))
+      return false;
+
+   //scriptOnNewDataBlock();
+   resetWorldBox();
+   return true;
+}
+
+ConsoleMethod( Marble, setPosition, void, 4, 4, "(Position P, Rotation r)")
+{
+   Point3F pos;
+   const MatrixF& tmat = object->getTransform();
+   tmat.getColumn(3,&pos);
+   AngAxisF aa(tmat);
+
+   dSscanf(argv[2],"%f %f %f %f %f %f %f",
+           &pos.x,&pos.y,&pos.z,&aa.axis.x,&aa.axis.y,&aa.axis.z,&aa.angle);
+			  
+   F32 rotVal = dAtof(argv[3]);
+
+   AngAxisF rot(Point3F(1, 0, 0), rotVal);
+
+   MatrixF mat;
+   aa.setMatrix(&mat);
+   mat.setColumn(3,pos);
+   object->setPosition(pos, aa, rot);
+}
+

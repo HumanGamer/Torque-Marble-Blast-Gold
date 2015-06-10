@@ -537,6 +537,7 @@ class ShapeBase : public GameBase
    friend class ShapeBaseConvex;
    friend class ShapeBaseImageData;
    friend class RTSUnit;
+   friend class Marble;
    friend void physicalZoneFind(SceneObject*, void *);
 
 public:

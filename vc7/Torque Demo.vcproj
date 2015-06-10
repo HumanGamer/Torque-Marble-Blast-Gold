@@ -111,7 +111,7 @@
 				GenerateDebugInformation="TRUE"
 				ProgramDatabaseFile=".\../engine/out.VC6.RELEASE/torqueDemo.pdb"
 				GenerateMapFile="TRUE"
-				SubSystem="1"
+				SubSystem="2"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCMIDLTool"

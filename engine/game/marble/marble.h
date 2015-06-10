@@ -90,10 +90,21 @@ class Marble : public ShapeBase {
 		VectorF posVec;
 		VectorF rotVec;
 	};
+	
+	enum MarbleMode {
+		Start,
+		Normal,
+		Victory
+	};
+	
 	Point3D mRot;
 	StateDelta delta;
 	
 	Point3F mPosition;
+
+	bool mControllable;
+
+	//ConcretePolyList* mPolyList;
 	/*
 	void setTransform(const MatrixF& mat);
 	
@@ -107,9 +118,9 @@ public:
 	static void initPersistFields();
 	static void consoleInit();
 	
-	/*bool onAdd();
+	bool onAdd();
 	void onRemove();
-	void processTick(const Move* move);
+	/*void processTick(const Move* move);
 	void interpolateTick(F32 delta);
 	void getCameraTransform(F32* pos,MatrixF* mat);
 	
@@ -119,6 +130,11 @@ public:
 	void unpackUpdate(NetConnection *conn, BitStream *stream);
 	Point3F &getPosition();
 	*/
+	
+	void setMode(MarbleMode mode);
+	void processTick(const Move *move);
+	void setPosition(const Point3F& pos, const AngAxisF& rot, const AngAxisF& rot1);
+	bool onNewDataBlock(GameBaseData* dptr);
 };
 
 #endif
