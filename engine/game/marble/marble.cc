@@ -108,7 +108,7 @@ bool Marble::onAdd()
 	addToScene();
 	//SceneGraph::addShadowOccluder();
 
-	return Parent::onAdd();
+	return true;
 }
 
 void Marble::onRemove()
