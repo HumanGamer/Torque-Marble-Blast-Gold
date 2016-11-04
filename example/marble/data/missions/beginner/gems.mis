@@ -157,5 +157,10 @@ new SimGroup(MissionGroup) {
       description = "AudioMusic";
       preload = "0";
    };
+   new TerrainBlock() {
+      terrainFile = "./gems.ter";
+      squareSize = "8";
+   };
+
 };
 //--- OBJECT WRITE END ---

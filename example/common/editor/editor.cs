@@ -1,8 +1,6 @@
 //-----------------------------------------------------------------------------
-// Torque Game Engine
-// 
-// Copyright (c) 2001 GarageGames.Com
-// Portions Copyright (c) 2001 by Sierra Online, Inc.
+// Torque Game Engine 
+// Copyright (C) GarageGames.com, Inc.
 //-----------------------------------------------------------------------------
 
 
@@ -65,6 +63,9 @@ function Editor::onAdd(%this)
    // Terrain Editor
    exec("./TerrainEditorVSettingsGui.gui");
 
+   // Ignore Replicated fxStatic Instances.
+   EWorldEditor.ignoreObjClass("fxShapeReplicatedStatic");
+
    // do gui initialization...
    EditorGui.init();
 
@@ -86,7 +87,7 @@ function Editor::checkActiveLoadDone()
 //------------------------------------------------------------------------------
 function toggleEditor(%make)
 {
-   if (%make && $testCheats)
+   if (%make)
    {
       if (!$missionRunning) 
       {

@@ -192,7 +192,7 @@ dsize_t dStrcspn(const char *str, const char *set)
 
 char* dStrstr(const char *str1, const char *str2)
 {
-   return strstr(str1,str2);
+   return strstr((char *)str1, (char *)str2);
 }   
 
 

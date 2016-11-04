@@ -12,7 +12,7 @@ new GuiControl(FrameOverlayGui) {
 	helpTag = "0";
    noCursor = true;
 
-	new GuiTextCtrl(TextOverlayControl) {
+	new GuiConsoleTextCtrl(TextOverlayControl) {
 		profile = "GuiTextProfile";
 		horizSizing = "right";
 		vertSizing = "bottom";

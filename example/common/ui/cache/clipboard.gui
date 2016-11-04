@@ -1,0 +1,67 @@
+new SimSet(guiClipboard) {
+
+   new GuiBitmapCtrl(DemoGui) {
+      profile = "GuiDefaultProfile";
+      horizSizing = "relative";
+      vertSizing = "relative";
+      position = "33 0";
+      extent = "525 214";
+      minExtent = "8 2";
+      visible = "1";
+      bitmap = "starter.RTS/client/ui/demo/textbackground";
+      wrap = "0";
+
+      new GuiMLTextCtrl(DemoTitle) {
+         profile = "GuiMLTextProfile";
+         horizSizing = "relative";
+         vertSizing = "relative";
+         position = "152 11";
+         extent = "284 14";
+         minExtent = "8 2";
+         visible = "1";
+         lineSpacing = "2";
+         allowColorChars = "0";
+         maxChars = "-1";
+      };
+      new GuiBitmapButtonCtrl() {
+         profile = "GuiDefaultProfile";
+         horizSizing = "relative";
+         vertSizing = "relative";
+         position = "15 10";
+         extent = "109 30";
+         minExtent = "8 2";
+         visible = "1";
+         command = "displayPreviousScreen();";
+         text = "Button";
+         groupNum = "-1";
+         buttonType = "PushButton";
+         bitmap = "starter.RTS/client/ui/demo/previous";
+      };
+      new GuiBitmapButtonCtrl() {
+         profile = "GuiDefaultProfile";
+         horizSizing = "relative";
+         vertSizing = "relative";
+         position = "304 138";
+         extent = "149 50";
+         minExtent = "8 2";
+         visible = "1";
+         command = "displayNextScreen();";
+         text = "Button";
+         groupNum = "-1";
+         buttonType = "PushButton";
+         bitmap = "starter.RTS/client/ui/demo/next";
+      };
+      new GuiMLTextCtrl(DemoText) {
+         profile = "GuiMLTextProfile";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         position = "151 35";
+         extent = "320 70";
+         minExtent = "8 2";
+         visible = "1";
+         lineSpacing = "2";
+         allowColorChars = "0";
+         maxChars = "-1";
+      };
+   };
+};

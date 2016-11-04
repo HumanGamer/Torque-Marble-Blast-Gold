@@ -11,6 +11,8 @@
 #define _WIN32_WINNT 0x0400
 #endif
 
+#define POINTER_64
+
 #include <windows.h>
 #ifndef _PLATFORM_H_
 #include "platform/platform.h"

@@ -2,7 +2,7 @@
 // Torque Game Engine 
 // Quake GL DirectX wrapper
 //-----------------------------------------------------------------------------
-
+#define POINTER_64
 #include "opengl2d3d/opengl2d3d.h"
 #include <stdio.h>
 

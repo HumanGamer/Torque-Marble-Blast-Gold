@@ -1,8 +1,6 @@
 //-----------------------------------------------------------------------------
-// Torque Game Engine
-// 
-// Copyright (c) 2001 GarageGames.Com
-// Portions Copyright (c) 2001 by Sierra Online, Inc.
+// Torque Game Engine 
+// Copyright (C) GarageGames.com, Inc.
 //-----------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------
@@ -23,9 +21,9 @@ if(!isObject(GuiDefaultProfile)) new GuiControlProfile (GuiDefaultProfile)
 
    // fill color
    opaque = false;
-   fillColor = ($platform $= "macos") ? "211 211 211" : "192 192 192";
-   fillColorHL = ($platform $= "macos") ? "244 244 244" : "220 220 220";
-   fillColorNA = ($platform $= "macos") ? "244 244 244" : "220 220 220";
+   fillColor = ($platform $= "macos") ? "211 211 211" : "213 120 81";
+   fillColorHL = ($platform $= "macos") ? "244 244 244" : "213 120 81";
+   fillColorNA = ($platform $= "macos") ? "244 244 244" : "213 120 81";
 
    // border color
    border = false;
@@ -38,7 +36,7 @@ if(!isObject(GuiDefaultProfile)) new GuiControlProfile (GuiDefaultProfile)
    fontSize = 14;
 
    fontColor = "0 0 0";
-   fontColorHL = "32 100 100";
+   fontColorHL = "255 255 255";
    fontColorNA = "0 0 0";
    fontColorSEL= "200 200 200";
 
@@ -61,37 +59,6 @@ if(!isObject(GuiDefaultProfile)) new GuiControlProfile (GuiDefaultProfile)
    soundButtonOver = "";
 };
 
-
-if(!isObject(GuiComic18Profile)) new GuiControlProfile ( GuiComic18Profile )
-{
-   fontType = "Comic Sans MS Bold";
-   fontSize = 18;
-   fontColor = "0 0 0";
-   autoSizeWidth = true;
-   autoSizeHeight = true;
-};
-
-
-if(!isObject(GuiComic24Profile)) new GuiControlProfile ( GuiComic24Profile )
-{
-   fontType = "Comic Sans MS Bold";
-   fontSize = 24;
-   fontColor = "0 0 0";
-   autoSizeWidth = true;
-   autoSizeHeight = true;
-};
-
-
-if(!isObject(GuiComic36Profile)) new GuiControlProfile ( GuiComic36Profile )
-{
-   fontType = "Comic Sans MS Bold";
-   fontSize = 36;
-   fontColor = "0 0 0";
-   autoSizeWidth = true;
-   autoSizeHeight = true;
-};
-
-
 if(!isObject(GuiInputCtrlProfile)) new GuiControlProfile( GuiInputCtrlProfile )
 {
    tab = true;
@@ -111,9 +78,9 @@ if(!isObject(GuiWindowProfile)) new GuiControlProfile (GuiWindowProfile)
 {
    opaque = true;
    border = 2;
-   fillColor = ($platform $= "macos") ? "211 211 211" : "192 192 192";
-   fillColorHL = ($platform $= "macos") ? "190 255 255" : "64 150 150";
-   fillColorNA = ($platform $= "macos") ? "255 255 255" : "150 150 150";
+   fillColor = ($platform $= "macos") ? "211 211 211" : "213 120 81";
+   fillColorHL = ($platform $= "macos") ? "244 244 244" : "213 120 81";
+   fillColorNA = ($platform $= "macos") ? "244 244 244" : "213 120 81";
    fontColor = ($platform $= "macos") ? "0 0 0" : "255 255 255";
    fontColorHL = ($platform $= "macos") ? "200 200 200" : "0 0 0";
    text = "GuiWindowCtrl test";
@@ -158,7 +125,7 @@ if(!isObject(GuiButtonProfile)) new GuiControlProfile (GuiButtonProfile)
    opaque = true;
    border = true;
    fontColor = "0 0 0";
-   fontColorHL = "32 100 100";
+   fontColorHL = "255 255 255";
    fixedExtent = true;
    justify = "center";
 	canKeyFocus = false;
@@ -172,6 +139,7 @@ if(!isObject(GuiBorderButtonProfile)) new GuiControlProfile (GuiBorderButtonProf
 if(!isObject(GuiMenuBarProfile)) new GuiControlProfile (GuiMenuBarProfile)
 {
    opaque = true;
+   fillColor = ($platform $= "macos") ? "211 211 211" : "192 192 192";
    fillColorHL = "0 0 96";
    border = 4;
    fontColor = "0 0 0";
@@ -308,8 +276,9 @@ if(!isObject(GuiControlListPopupProfile)) new GuiControlProfile (GuiControlListP
 
 if(!isObject(GuiTextArrayProfile)) new GuiControlProfile (GuiTextArrayProfile : GuiTextProfile)
 {
-   fontColorHL = "32 100 100";
-   fillColorHL = "200 200 200";
+   fontSize = 15;
+   fontColorHL = "255 255 255";
+   fillColorHL = "233 128 86";
 };
 
 if(!isObject(GuiTextListProfile)) new GuiControlProfile (GuiTextListProfile : GuiTextProfile) ;
@@ -383,6 +352,13 @@ if(!isObject(GuiMLTextProfile)) new GuiControlProfile ("GuiMLTextProfile")
 {
    fontColorLink = "255 96 96";
    fontColorLinkHL = "0 0 255";
+};
+
+if(!isObject(GuiMLTextNoSelectProfile)) new GuiControlProfile ("GuiMLTextNoSelectProfile")
+{
+   fontColorLink = "255 96 96";
+   fontColorLinkHL = "0 0 255";
+   modal = false;
 };
 
 if(!isObject(GuiMLTextEditProfile)) new GuiControlProfile (GuiMLTextEditProfile) 

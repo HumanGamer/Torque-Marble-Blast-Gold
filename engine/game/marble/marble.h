@@ -80,8 +80,9 @@ class Marble : public ShapeBase {
 	typedef ShapeBase Parent;
 	
 	enum MaskBits {
-		MoveMask		 = Parent::NextFreeMask,
-		NextFreeMask = Parent::NextFreeMask << 1
+		MoveMask		 = Parent::NextFreeMask << 0,
+		CamMask		 = Parent::NextFreeMask << 1,
+		NextFreeMask	 = Parent::NextFreeMask << 2
 	};
 	
 	struct StateDelta {
@@ -100,9 +101,13 @@ class Marble : public ShapeBase {
 	Point3D mRot;
 	StateDelta delta;
 	
+	Point3F mVelocity;
 	Point3F mPosition;
 
 	bool mControllable;
+
+	float mPitch;
+	float mYaw;
 
 	//ConcretePolyList* mPolyList;
 	/*
@@ -120,20 +125,26 @@ public:
 	
 	bool onAdd();
 	void onRemove();
-	/*void processTick(const Move* move);
 	void interpolateTick(F32 delta);
 	void getCameraTransform(F32* pos,MatrixF* mat);
+
+	void advancePhysics(const Move *move, U32 unknown);
 	
 	void writePacketData(GameConnection *conn, BitStream *stream);
 	void readPacketData(GameConnection *conn, BitStream *stream);
 	U32  packUpdate(NetConnection *conn, U32 mask, BitStream *stream);
 	void unpackUpdate(NetConnection *conn, BitStream *stream);
-	Point3F &getPosition();
-	*/
+	//Point3F &getPosition();
+
+	void setVelocity(VectorF velocity);
+	VectorF getVelocity();
+
+	void setTransform(const MatrixF& mat);
 	
 	void setMode(MarbleMode mode);
 	void processTick(const Move *move);
-	void setPosition(const Point3F& pos, const AngAxisF& rot, const AngAxisF& rot1);
+	void setPosition(const Point3F& pos, const AngAxisF& rot, float rot1);
+	void setPosition(const Point3F& pos);
 	bool onNewDataBlock(GameBaseData* dptr);
 };
 

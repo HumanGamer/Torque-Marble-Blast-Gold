@@ -364,20 +364,7 @@ new GuiControl(EditorGui) {
                   minExtent = "8 8";
                   visible = "1";
                   helpTag = "0";
-                  new GuiButtonCtrl(ECreateSubsBtn) {
-                     profile = "GuiButtonProfile";
-                     horizSizing = "right";
-                     vertSizing = "bottom";
-                     position = "205 2";
-                     extent = "64 20";
-                     minExtent = "8 8";
-                     visible = "0";
-                     command = "EWorldEditor.createSubs();";
-                     helpTag = "0";
-                     text = "Create Subs";
-                     groupNum = "-1";
-                     buttonType = "PushButton";
-                  };
+
                   new GuiButtonCtrl() {
                      profile = "GuiButtonProfile";
                      horizSizing = "right";

@@ -9,32 +9,30 @@ new GuiControl(MessageBoxOKDlg) {
    visible = "1";
    helpTag = "0";
 
-   new GuiBitmapCtrl(MBOKFrame) {
-      profile = "GuiDefaultProfile";
+   new GuiWindowCtrl(MBOKFrame) {
+      profile = "GuiWindowProfile";
       horizSizing = "center";
       vertSizing = "center";
-      position = "170 159";
-      extent = "300 161";
+      position = "170 175";
+      extent = "300 129";
       minExtent = "48 92";
       visible = "1";
       helpTag = "0";
-      bitmap = "./dialog.png";
-      wrap = "0";
-         resizeHeight = "1";
-         canMaximize = "0";
-         canMove = "1";
-         minSize = "50 50";
-         canClose = "0";
-         maxLength = "255";
-         resizeWidth = "1";
-         canMinimize = "0";
+      maxLength = "255";
+      resizeWidth = "1";
+      resizeHeight = "1";
+      canMove = "1";
+      canClose = "0";
+      canMinimize = "0";
+      canMaximize = "0";
+      minSize = "50 50";
 
-      new GuiMLTextCtrl(MBOKTitle) {
-         profile = "GuiComic24Profile";
+      new GuiMLTextCtrl(MBOKText) {
+         profile = "GuiTextProfile";
          horizSizing = "center";
          vertSizing = "bottom";
-         position = "43 15";
-         extent = "213 23";
+         position = "32 39";
+         extent = "236 24";
          minExtent = "8 8";
          visible = "1";
          helpTag = "0";
@@ -42,35 +40,19 @@ new GuiControl(MessageBoxOKDlg) {
          allowColorChars = "0";
          maxChars = "-1";
       };
-      new GuiBitmapButtonCtrl() {
+      new GuiButtonCtrl() {
          profile = "GuiButtonProfile";
          horizSizing = "right";
          vertSizing = "top";
-         position = "117 85";
-         extent = "78 59";
+         position = "95 88";
+         extent = "110 23";
          minExtent = "8 8";
          visible = "1";
          command = "MessageCallback(MessageBoxOKDlg,MessageBoxOKDlg.callback);";
          accelerator = "return";
          helpTag = "0";
          text = "OK";
-         groupNum = "-1";
-         buttonType = "PushButton";
-         bitmap = "./ok";
             simpleStyle = "0";
-      };
-      new GuiMLTextCtrl(MBOKText) {
-         profile = "GuiTextProfile";
-         horizSizing = "center";
-         vertSizing = "bottom";
-         position = "32 50";
-         extent = "236 14";
-         minExtent = "8 8";
-         visible = "1";
-         helpTag = "0";
-         lineSpacing = "2";
-         allowColorChars = "0";
-         maxChars = "-1";
       };
    };
 };

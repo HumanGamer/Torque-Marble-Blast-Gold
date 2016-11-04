@@ -1,7 +1,6 @@
 //-----------------------------------------------------------------------------
-// Torque Game Engine
-// 
-// Copyright (c) 2001 GarageGames.Com
+// Torque Game Engine 
+// Copyright (C) GarageGames.com, Inc.
 //-----------------------------------------------------------------------------
 
 function EditorGui::getPrefs()
@@ -844,7 +843,6 @@ function EditorTree::init(%this)
 function EditorTree::onInspect(%this, %obj)
 {
    Inspector.inspect(%obj);
-   ECreateSubsBtn.setVisible(%obj.getClassName() $= "InteriorInstance");
    InspectorNameEdit.setValue(%obj.getName());
 }
 
@@ -877,16 +875,6 @@ function ETContextPopup::onSelect(%this, %index, %value)
 //------------------------------------------------------------------------------
 // Functions
 //------------------------------------------------------------------------------
-
-function WorldEditor::createSubs(%this)
-{
-   for(%i = 0; %i < %this.getSelectionSize(); %i++)
-   {
-      %obj = %this.getSelectedObject(%i);
-      if(%obj.getClassName() $= "InteriorInstance")
-         %obj.magicButton();
-   }
-}
 
 function WorldEditor::init(%this)
 {
@@ -939,7 +927,6 @@ function WorldEditor::onDblClick(%this, %obj)
 function WorldEditor::onClick( %this, %obj )
 {
    Inspector.inspect( %obj );
-   ECreateSubsBtn.setVisible(%obj.getClassName() $= "InteriorInstance");
    InspectorNameEdit.setValue( %obj.getName() );
 }
 
@@ -999,14 +986,14 @@ function WorldEditor::dropCameraToSelection(%this)
       return;
 
    %pos = %this.getSelectionCentroid();
-   %cam = LocalClientConnection.camera.getTransform();
+   %cam = LocalClientConnection.observerCam.getTransform();
 
    // set the pnt
    %cam = setWord(%cam, 0, getWord(%pos, 0));
    %cam = setWord(%cam, 1, getWord(%pos, 1));
    %cam = setWord(%cam, 2, getWord(%pos, 2));
 
-   LocalClientConnection.camera.setTransform(%cam);
+   LocalClientConnection.observerCam.setTransform(%cam);
 }
 
 // * pastes the selection at the same place (used to move obj from a group to another)
@@ -1147,20 +1134,25 @@ function Creator::init( %this )
    %objGroup[2] = "System";
    //%objGroup[3] = "AI";
 
-   %Environment_Item[0] = "Sky";
-   %Environment_Item[1] = "Sun";
-   %Environment_Item[2] = "Lightning";
-   %Environment_Item[3] = "Water";
-   %Environment_Item[4] = "Terrain";
-   %Environment_Item[5] = "AudioEmitter";
-   %Environment_Item[6] = "Precipitation";
-   %Environment_Item[7] = "ParticleEmitter";
-
+   %Environment_Item[0]  = "Sky";
+   %Environment_Item[1]  = "Sun";
+   %Environment_Item[2]  = "Lightning";
+   %Environment_Item[3]  = "Water";
+   %Environment_Item[4]  = "Terrain";
+   %Environment_Item[5]  = "AudioEmitter";
+   %Environment_Item[6]  = "Precipitation";
+   %Environment_Item[7]  = "ParticleEmitter";
+   %Environment_Item[8]  = "fxSunLight";
+   %Environment_Item[9]  = "fxShapeReplicator";
+   %Environment_Item[10] = "fxFoliageReplicator";
+   %Environment_Item[11] = "fxLight";
+   
    %Mission_Item[0] = "MissionArea";
-   %Mission_Item[1] = "Marker";
-   %Mission_Item[2] = "Trigger";
-   %Mission_Item[3] = "PhysicalZone";
-   %Mission_Item[4] = "Camera";
+   %Mission_Item[1] = "Path";
+   %Mission_Item[2] = "PathMarker";
+   %Mission_Item[3] = "Trigger";
+   %Mission_Item[4] = "PhysicalZone";
+   %Mission_Item[5] = "Camera";
    //%Mission_Item[5] = "GameType";
    //%Mission_Item[6] = "Forcefield";
 
@@ -2763,6 +2755,10 @@ function getPrefSetting(%pref, %default)
 
 function Editor::open(%this)
 {
+   // prevent the mission editor from opening while the GuiEditor is open.
+   if(Canvas.getContent() == GuiEditorGui.getId())
+      return;
+
    %this.prevContent = Canvas.getContent();
 
    Canvas.setContent(EditorGui);

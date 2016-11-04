@@ -1,8 +1,6 @@
 //-----------------------------------------------------------------------------
-// Torque Game Engine
-// 
-// Copyright (c) 2001 GarageGames.Com
-// Portions Copyright (c) 2001 by Sierra Online, Inc.
+// Torque Game Engine 
+// Copyright (C) GarageGames.com, Inc.
 //-----------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
@@ -29,20 +27,6 @@ function SpawnSphere::onEditorRender(%this, %editor, %selected, %expanded)
       %editor.consoleFrameColor = "255 0 0";
       %editor.consoleFillColor = "0 0 0 0";
       %editor.renderSphere(%this.getWorldBoxCenter(), %this.radius, 1);
-   }
-}
-
-function AudioEmitter::onEditorRender(%this, %editor, %selected, %expanded)
-{
-   if(%selected $= "true" && %this.is3D && !%this.useProfileDescription)
-   {
-      %editor.consoleFillColor = "0 0 0 0";
-
-      %editor.consoleFrameColor = "255 0 0";
-      %editor.renderSphere(%this.getTransform(), %this.minDistance, 1);
-
-      %editor.consoleFrameColor = "0 0 255";
-      %editor.renderSphere(%this.getTransform(), %this.maxDistance, 1);
    }
 }
 

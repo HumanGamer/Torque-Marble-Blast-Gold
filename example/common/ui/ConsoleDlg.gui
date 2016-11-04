@@ -60,6 +60,8 @@ function ToggleConsole(%make)
             activateKeyboard();
          Canvas.popDialog(ConsoleDlg);
          $ConsoleActive = false;
+         if (Canvas.getContent() == PlayGui.getId())
+            lockMouse(true);
       }
       else
       {
@@ -67,6 +69,8 @@ function ToggleConsole(%make)
             deactivateKeyboard();
          Canvas.pushDialog(ConsoleDlg, 99);
          $ConsoleActive = true;
+         if (Canvas.getContent() == PlayGui.getId())
+            lockMouse(false);
       }
    }
 }

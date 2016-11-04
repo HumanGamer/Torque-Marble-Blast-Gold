@@ -459,6 +459,24 @@ function ObjectBuilderGui::addField(%this, %name, %type, %text, %value)
 // Environment
 //------------------------------------------------------------------------------
 
+function ObjectBuilderGui::buildfxFoliageReplicator(%this)
+{
+	%this.className = "fxFoliageReplicator";
+	%this.process();
+}
+
+function ObjectBuilderGui::buildfxShapeReplicator(%this)
+{
+	%this.className = "fxShapeReplicator";
+	%this.process();
+}
+
+function ObjectBuilderGui::buildfxSunLight(%this)
+{
+	%this.className = "fxSunLight";
+	%this.process();
+}
+
 function ObjectBuilderGui::buildSky(%this)
 {
    %this.className = "Sky";
@@ -477,6 +495,13 @@ function ObjectBuilderGui::buildSky(%this)
    %this.addField("fogVolume2", "TypePoint3", "Fog volume", "0 0 0");
    %this.addField("fogVolume3", "TypePoint3", "Fog volume", "0 0 0");
 
+   %this.process();
+}
+
+function ObjectBuilderGui::buildfxLight(%this)
+{
+   %this.className = "fxLight";
+   %this.addField("dataBlock", "TypeDataBlock", "fxLight Data", "fxLightData");
    %this.process();
 }
 
@@ -543,12 +568,11 @@ function ObjectBuilderGui::buildAudioEmitter(%this)
    %this.addFIeld("volume", "TypeFloat", "Volume", "1.0");
    %this.addField("isLooping", "TypeBool", "Looping?", "true");
    %this.addField("is3D", "TypeBool", "Is 3D sound?", "true");
-   %this.addField("minDistance", "TypeFloat", "Min distance", "20.0");
-   %this.addField("maxDistance", "TypeFloat", "Max distance", "100.0");
-   %this.addField("coneInsideAngle", "TypeInt", "Cone inside angle", "360");
-   %this.addField("coneOutsideAngle", "TypeInt", "Cone outside angle", "360");
-   %this.addField("coneOutsideVolume", "TypeFloat", "Cone outside volume", "1.0");
-   %this.addField("coneVector", "TypePoint3", "Cone Vector", "0 0 1");
+   %this.addField("ReferenceDistance", "TypeFloat", "Reference distance", "5.0"); //EFM
+   %this.addField("maxDistance", "TypeFloat", "Max distance", "35.0");
+   %this.addField("coneInsideAngle", "TypeInt", "Cone inside angle", "90");
+   %this.addField("coneOutsideAngle", "TypeInt", "Cone outside angle", "120");
+   %this.addField("coneOutsideVolume", "TypeFloat", "Cone outside volume", "0.25");
    %this.addField("loopCount", "TypeInt", "Loop count", "-1");
    %this.addField("minLoopGap", "TypeInt", "Min loop gap (ms)", "0");
    %this.addField("maxLoopGap", "TypeInt", "Max loop gap (ms)", "0");
@@ -583,7 +607,13 @@ function ObjectBuilderGui::buildMissionArea(%this)
    %this.process();
 }
 
-function ObjectBuilderGui::buildMarker(%this)
+function ObjectBuilderGui::buildPath(%this)
+{
+   %this.className = "Path";
+   %this.process();
+}
+
+function ObjectBuilderGui::buildPathMarker(%this)
 {
    %this.className = "Marker";
    %this.process();

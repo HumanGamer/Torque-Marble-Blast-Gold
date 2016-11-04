@@ -11,6 +11,6 @@
 <File ScrollX="0" ScrollY="50">marble\client\scripts\playgui.cs</File>
 <File ScrollX="0" ScrollY="12">marble\client\ui\playGui.gui</File>
 <File ScrollX="0" ScrollY="28">marble\server\scripts\item.cs</File>
-<File ScrollX="0" ScrollY="542" Active="true">marble\server\scripts\game.cs</File>
+<File ScrollX="58" ScrollY="511" Active="true">marble\server\scripts\game.cs</File>
 </OpenFiles>
 </TorsionProjectOptions>
